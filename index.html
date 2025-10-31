@@ -11,7 +11,7 @@
   body{margin:0;font-family:monospace;display:flex;height:100vh;background:var(--bg);color:#000}
   .sidebar{width:220px;background:var(--card);border-right:3px solid #000;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
   .sidebar h2{margin:0 0 12px;font-size:16px}
-  .sidebar button{display:block;width:100%;padding:8px;border:3px solid #000;background:#fff;margin-bottom:8px;cursor:pointer;text-align:left;font-weight:bold;text-transform:uppercase;box-shadow:4px 4px 0 #000;transition:background 0.2s,border-color 0.2s}
+  .sidebar button{display:block;width:100%;padding:8px;border:3px solid #000;background:#fff;margin-bottom:8px;cursor:pointer;text-gn:left;font-weight:bold;text-transform:uppercase;box-shadow:4px 4px 0 #000;transition:background 0.2s,border-color 0.2s}
   .sidebar button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
   .sidebar input[type=file]{display:none}
   .main{flex:1;padding:18px;overflow:auto}
@@ -97,7 +97,7 @@
     <div id="employees" class="section">
       <label>Employee name</label>
       <div class="row">
-        <input id="empName" placeholder="e.g. Ali Khan" />
+        <input id="empName" placeholder="e.g. Abdul Manan" />
         <button type="button" onclick="addEmployee()">Add</button>
       </div>
       <div class="list" id="empList"></div>
@@ -640,3 +640,4 @@ document.getElementById('saveEditInv').addEventListener('click', () => {
 </script>
 </body>
 </html>
+
