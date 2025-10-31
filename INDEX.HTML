@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Minimal Inventory Manager</title>
+<link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAJrUlEQVR4AeyaeWwVVRTG32tpEbWgqLhijBbBsr1SFnEl4hY1YtyDQeOKEY2KuzH+oQY0KO4rERUVNRijRuNuUDQVY0sXinsiGEUg7FCgyxt/32XmZWb63uu8mWlDQpv7vXPuuefee86568y0KLGb//UEYDefAImeGdAzA3bzCPQsgd18AnT/JphKpe4F1siRI1cMGzZsoD0ASWQfAKuqqupgW9YtpFuWAI49AizwSl1d3QyQrK+vP3zp0qV/215ayCaBZGlp6Qb0rKFDh/a3y7qUdGkA5EhlZWU1jt0FkuDKzryprq7ehl6ypKRkLfUbgQJn0FndMOVdFgAZ3traup9lWYvCGKYgJJPJz0Ud0OYW2kqC2FKXBABD8dua3tTUtA7j7wxiLXvCk6rn1i0qKprjztPW3uj9PGLEiHFueRQ+9gDICQzVGn+8EMPYE25WPdV36tXU1Pzi8A5FbwiBmYjePo4sCo01AKz3t+WEYxBGbgWWkw9C3fVz6aMzg7L1IHKKNQDM+0vcDmPoXiDWNRvVY3/92ALA+b0/ARjcXQ4PGjSoF8G+3e9QofnYAtDe3r6G9flboQaE1V+wYEE7p8QxBKE1bBuqF1sAaOw6kDOxP7Rh7Ac5FQIUUH+11DgJdoguWbLkamgvEDrFEgAM003Oc2T5LcLYXiyPSX65P6+2BAL2lbsM2WbqD5CMkc8bbOkEReQAYNh2DEtCLYw+wN8x8meBucnZVDu4USN/GTBl48aN6yuh2hII2ETlx44du590OPrOEpWM8tdEbdTbNBSJHAB67S3DMCqJ0WvIexLyaQi+geoqLNxLPjF8+PB9kb0JJEu2tbVtUztM75kqh05Xnr2lTTq1tbWLRJF57hfIEKXSqhMGcQQg77rGOg4Ha77fuMbGxvVuWU1NTSvO6AJ1j+RsqLOVR75ReRduYaad68qLDX3URg4ARp7HmnxPVrghx5nWB1Iup15yl0XlmWkfOm2oH/i/QKgUOQAyAIMucPcumfKLFy9eJRonCPaf7vYUYPL/gFApcgAw6DF/z7ZRCabqw/6yqHnW01FZ2nBvilmKc4siBYCRfobRz3kbw9ghubsOX5JKpTzPFwR8jl8WtPVIAaCTE0DC3znX4uGSg1dB7AmHM5sej8YD/P0X0mGkAGAIfaeO93fI0dUgGcvjHNG4QGcWbc52t8f9YBV2ZALiLgvCRwqA3cF3MoBR39POJ5Rn+tewPK5xZHFR2ryNQEwG5vhVX2qbwLwlWijiCIDpk/O62TD8jBkzZiDn+GjYSGnUqFFnsJGuwNknfA3pAjXJJ3vdlw+UjSMA//p74l1g5qjC+DS3uqFQc+WFn4lTnyhPoA7y15VcQOcFbn+fMeKHo6Pr8HpntMlnknTBtel0em1G6GI6YyMHAKMOxYBVwDhod1hiU5EXmA1NrNUKZZiqd7M8zoT+R6BWEpD7JBfUBvJvKd8MpirPt4MD6WMK2Fd56YE3CNBT5CfDa8nNoY8fxReKyAGwOxyAgzdhpB6KrkC2HJiE7AYMtbjrM0jpvSXUywwc3Cwewx8SFdBNIj8JWV/lhbKysk2qL17lNp2C3k3wkZdZ5ACw+ZVgSALvnmZUdPGZi3HvSuZAhjc0NPwKtorXywzo0cCzezuOqp7KBOc7ATPlVspvUJmNOyifDj8NhE6RA8CR9wW9f48xxfAPwhcxjW+Ddkg4cRXntnnY6VCIgDaSAmwCZ19H/2XxArPiccqeE29jligzb7FoWEQOAB2fjGG6EKUxZktxcXE5+azt4sRcZsFM6nRIOOy/3U1BX298OujaAtMOQTdLyZYVTLIaWkgrOKt1nzEeg/6gfiYP3yWJYOskWUaQIr2HjBwAeceU18dPY4gCwjQfJnmB8Lwf6KwuR6Q+uQ3pTK+z8lgCwFl9Nx0NAiaxDG40TI4fNssL/UUEznwNTqVSsygf6S9358ePH98fvXXIPJso+YJTLAFQrzhgjMEwDgFrqmTZQPnkfv36fUSZ0Yd6Eu3cQQMfe4S+THNz8/vo9QdZ2/Cp583GFgD1IoME8Xnw5sKFC7dzfFYSDAuYy4z04S2Wzym0cZjyucCSOzFXWaHyWAPg6nyei8+wchDnkhMmTNiDzfIM7g7HMtpHSi7A38/mdn6mAozkkC5LXRWAy1nH2hcyhjPi/ci0yqENGzZsg5+Bsz8wmro7kE0k4B9IJBLTpOOAvCdJTqA8bXsUCszEHgAZqFHGSHNOO/bwtLgR3twaVZ4LBEUb4E/oKj2pHx9mscl+4pOFzsYSADltIy3HxDsWuXmVCSpDPhs0gXqwGcxn1hzC8daAzhigW+Et0vVBm+TX6Mdy1wgdAKb0KBmB0RUytqWlpTdT+GwZy9o2z+oqVxm0w3tDdE9GtwKqnVwvMy5l1nR4u6v66JlEX1NgWjh294cmeJweSNv6j7Ocp4708qHgANChRstiStfKOIxZpg5KS0t3wOt2ZnHddd7bV6sMvUdF3UC3Crme/u6B6lvfLKiC4Vbz8ARoHpvnaGzQt0h9TTJ1uA2+KBkBavBUCJAJFAA1Dnawe/fCyDKQzdDL7P7MZyqMTaN3HPXyTlV0zJkPvcuun5WoHdo8ky9KjY4C+Uscnvr6NDeCByg9PuuS5BTlpYECoMZBb87vtmyt0el1lM+nrAhaDNWO/qIo0ONqtoBRFCzh/G+0q9XyqWqwCZaL1tXVJcvLy3uLd8Bs6ItcN8UWR5aPBgpAvgZUhmXGWQzNRB4jzfGGMc8hN7NCuoWC4D5K+xe567H8/kQ+VTJemCwU9YN+S/2ybPlYAsBUdD6B6aw3/WCkXndVKoMxnidGyYKAwL2D84vYL8wncPhapx788+Lp+1jRsIgcAEZCz+0HZTMAI80mqDJOhok4lHc/kJ4DW/digmdefw8ePLiMQFQ55dBIy4r6JkUOAE6aa69tsN/BzPrkZPhaPaLXTNC+tHk9C2TA0XoUO/nl6Kgd838B0hP69OmzSTQLVmaRBRZFDgAje01FRYXW2+mMVhHG64WIMYDp6XmjQ7lGrQ8b1ak46tz2jK5+OOJ+YZTncRs8l7opyVzQ9dmV3cly/zhiJxfuN1IAcLadkX1ZdwCc07tB7f6a6obH0bnoaDQz1qGn/eB3HB0t3ocSKRLU66nbJF5gxvyE3p7iBdpcTV7tLOOvhWDWSB4GkQKAEebIg2pkTf84tpz8aSbDD3ymjKxJyDIvT4zA90O5uVE6YoLhef1NuflnKWiFdOjTvTdIFBiRAhC4l11YsScAu/DgdItpPTOgW8K8C3fSMwN24cEJZFpUpf8BAAD//x6aipwAAAAGSURBVAMAqmCmvZHujXEAAAAASUVORK5CYII=" rel="icon" type="image/png">
+<style>
+  :root{--bg:#fff;--card:#fff;--muted:#000;--accent:#ff00ff}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:monospace;display:flex;height:100vh;background:var(--bg);color:#000}
+  .sidebar{width:220px;background:var(--card);border-right:3px solid #000;padding:16px;display:flex;flex-direction:column;justify-content:space-between}
+  .sidebar h2{margin:0 0 12px;font-size:16px}
+  .sidebar button{display:block;width:100%;padding:8px;border:3px solid #000;background:#fff;margin-bottom:8px;cursor:pointer;text-align:left;font-weight:bold;text-transform:uppercase;box-shadow:4px 4px 0 #000;transition:background 0.2s,border-color 0.2s}
+  .sidebar button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .sidebar input[type=file]{display:none}
+  .main{flex:1;padding:18px;overflow:auto}
+  h1{margin:0 0 14px;font-size:20px}
+  .section{background:var(--card);border:3px solid #000;padding:12px;margin-bottom:14px;box-shadow:4px 4px 0 #000}
+  label{display:block;margin-top:8px;font-size:13px;color:var(--muted);font-weight:bold}
+  input,button[type="button"]{width:100%;padding:8px;margin-top:6px;border:3px solid #000;background:#fff;font-family:monospace;transition:background 0.2s,border-color 0.2s}
+  button[type="button"]:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .custom-select{position:relative;display:inline-block;width:100%}
+  .custom-select > button{width:100%;padding:8px;margin-top:6px;border:3px solid #000;background:var(--card);color:var(--muted);font-family:monospace;font-weight:bold;cursor:pointer;text-align:left;box-shadow:4px 4px 0 #000;display:flex;justify-content:space-between;align-items:center}
+  .custom-select > button:hover{border-color:var(--accent)}
+  .custom-dropdown{position:absolute;top:100%;left:0;width:100%;background:var(--card);border:3px solid #000;box-shadow:4px 4px 0 #000;max-height:200px;overflow-y:auto;z-index:100;display:none;margin-top:-3px}
+  .custom-dropdown.active{display:block}
+  .custom-dropdown > div{padding:8px;border-bottom:2px solid #000;cursor:pointer;color:var(--muted);font-family:monospace;font-weight:bold}
+  .custom-dropdown > div:last-child{border-bottom:none}
+  .custom-dropdown > div:hover{background:var(--accent);color:#fff}
+  select{display:none}
+  .row{display:flex;gap:8px}
+  .row > *{flex:1}
+  .list{margin-top:12px}
+  .item{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px dashed #000;font-size:14px;align-items:center}
+  .item:last-child{border-bottom:none}
+  .small{font-size:12px;color:var(--muted)}
+  .btn-sm{padding:6px 8px;border:2px solid #000;background:#fff;cursor:pointer;font-weight:bold;transition:background 0.2s,border-color 0.2s,color 0.2s}
+  .btn-sm:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .btn-danger{color:#b00;border-color:#b00;background:#fff}
+  .btn-danger:hover{background:#b00;color:#fff;border-color:#b00}
+  /* Unified action button styles */
+  .action-btn{background:#f7f7f7;color:#000;border-color:#000;box-shadow:2px 2px 0 #000}
+  .action-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .action-btn.btn-danger{background:#fff;color:#b00;border-color:#b00;box-shadow:2px 2px 0 #b00}
+  .action-btn.btn-danger:hover{background:#b00;color:#fff;border-color:#b00}
+  .count{font-size:12px;color:var(--muted);margin-left:8px}
+  .credit{font-size:11px;color:var(--muted);margin-top:8px}
+  .credit a{color:inherit;text-decoration:underline}
+  .modal-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:1000}
+  .modal{background:var(--card);border:3px solid #000;box-shadow:4px 4px 0 #000;padding:16px;max-width:90vw;width:420px;border-radius:0}
+  .compact .main{padding:14px}
+  .compact .section{padding:10px}
+  .compact .sidebar{width:200px}
+  .compact .sidebar button{padding:6px}
+  .compact input,.compact button[type="button"]{padding:6px}
+  .compact select{padding:6px;padding-right:28px}
+  table{width:100%;border-collapse:collapse;margin-top:12px}
+  table thead{background:var(--accent);color:#fff}
+  table th{padding:10px;text-align:left;border:2px solid #000;font-weight:bold}
+  table td{padding:10px;border:2px solid #000}
+  table tbody tr:nth-child(odd){background:rgba(0,0,0,.05)}
+  table tbody tr{transition:background 0.2s}
+  table tbody tr:hover{background:var(--accent);color:#fff}
+  .table-actions{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+  /* Default action button appearance (visible by default) */
+  .table-actions button{padding:8px 14px;font-size:12px;border:2px solid #000;background:#f7f7f7;color:#000;cursor:pointer;font-weight:bold;transition:background 0.2s,border-color 0.2s,color 0.2s;white-space:nowrap}
+  .table-actions button.btn-danger{background:#fff;color:#b00;border-color:#b00}
+  /* Keep buttons readable when row is hovered */
+  table tbody tr:hover .table-actions button{background:#f7f7f7;color:#000;border-color:#000}
+  table tbody tr:hover .table-actions button.btn-danger{background:#fff;color:#b00;border-color:#b00}
+  /* On button hover */
+  .table-actions button:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  .table-actions button.btn-danger:hover{background:#b00;color:#fff;border-color:#b00}
+</style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2>Menu</h2>
+      <button onclick="show('employees')">Employees</button>
+      <button onclick="show('inventory')">Inventory</button>
+      <button onclick="show('assign')">Assign</button>
+    </div>
+    <div>
+      <button id="customizeBtn">Customize</button>
+      <button id="exportBtn">Export JSON</button>
+      <button id="importBtn" type="button">Import JSON</button>
+      <input id="importFile" type="file" accept=".json" style="display:none" />
+      <button id="clearBtn" class="btn-danger">Clear All</button>
+      <div class="credit">Built by <strong>Abdul Manan</strong> — <a href="https://github.com/abdulmanan69" target="_blank" rel="noopener noreferrer">@abdulmanan69</a></div>
+    </div>
+  </div>
+
+  <div class="main">
+    <h1 id="title">Employees</h1>
+    <div id="employees" class="section">
+      <label>Employee name</label>
+      <div class="row">
+        <input id="empName" placeholder="e.g. Ali Khan" />
+        <button type="button" onclick="addEmployee()">Add</button>
+      </div>
+      <div class="list" id="empList"></div>
+    </div>
+
+    <div id="inventory" class="section" style="display:none">
+      <label>Category</label>
+      <div class="custom-select" id="eqCategory">
+        <button type="button"><span>Laptop</span><span>▼</span></button>
+        <div class="custom-dropdown">
+          <div data-value="laptop">Laptop</div>
+          <div data-value="headset">Headset</div>
+          <div data-value="mouse">Mouse</div>
+          <div data-value="other">Other</div>
+        </div>
+      </div>
+      <label>Model / Brand</label>
+      <input id="eqName" placeholder="e.g. Dell Thin" />
+      <div class="row">
+        <div>
+          <label>Quantity</label>
+          <input id="eqQty" type="number" min="1" value="1" />
+        </div>
+      </div>
+      <button type="button" onclick="addInventory()">Add to Inventory</button>
+      <div class="list" id="invList" style="margin-top:12px"></div>
+    </div>
+
+    <div id="assign" class="section" style="display:none">
+      <label>Select employee</label>
+      <div class="custom-select" id="selectEmployee">
+        <button type="button"><span>Select</span><span>▼</span></button>
+        <div class="custom-dropdown"></div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <div style="flex:1;min-width:150px">
+          <label>Select laptop</label>
+          <div class="custom-select" id="selectLaptop">
+            <button type="button"><span>None</span><span>▼</span></button>
+            <div class="custom-dropdown"></div>
+          </div>
+        </div>
+        <div style="flex:1;min-width:150px">
+          <label>Select headset</label>
+          <div class="custom-select" id="selectHeadset">
+            <button type="button"><span>None</span><span>▼</span></button>
+            <div class="custom-dropdown"></div>
+          </div>
+        </div>
+        <div style="flex:1;min-width:150px">
+          <label>Select mouse</label>
+          <div class="custom-select" id="selectMouse">
+            <button type="button"><span>None</span><span>▼</span></button>
+            <div class="custom-dropdown"></div>
+          </div>
+        </div>
+        <div style="flex:1;min-width:150px">
+          <label>Select other</label>
+          <div class="custom-select" id="selectOther">
+            <button type="button"><span>None</span><span>▼</span></button>
+            <div class="custom-dropdown"></div>
+          </div>
+        </div>
+      </div>
+      <button type="button" style="margin-top:10px" onclick="assignSelected()">Assign selected</button>
+      <div class="list" id="assignedList"></div>
+    </div>
+  </div>
+
+  <div id="editEmpModal" style="display:none">
+    <div class="modal-backdrop">
+      <div class="modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h2 style="margin:0">Edit Employee</h2>
+          <button type="button" class="btn-sm" id="closeEditEmp">Close</button>
+        </div>
+        <label>Employee Name</label>
+        <input id="editEmpName" type="text" />
+        <button type="button" class="btn-sm" id="saveEditEmp" style="margin-top:12px;width:100%">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="editInvModal" style="display:none">
+    <div class="modal-backdrop">
+      <div class="modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h2 style="margin:0">Edit Item</h2>
+          <button type="button" class="btn-sm" id="closeEditInv">Close</button>
+        </div>
+        <label>Model/Brand</label>
+        <input id="editInvName" type="text" />
+        <label>Quantity</label>
+        <input id="editInvQty" type="number" min="1" />
+        <button type="button" class="btn-sm" id="saveEditInv" style="margin-top:12px;width:100%">Save Changes</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="customizeModal" style="display:none">
+    <div class="modal-backdrop">
+      <div class="modal">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h2 style="margin:0">Customization</h2>
+          <button type="button" class="btn-sm" id="closeCustomize">Close</button>
+        </div>
+        <label>Accent color</label>
+        <input id="accentColor" type="color" value="#ff00ff" />
+        <label>Background color</label>
+        <input id="bgColor" type="color" value="#ffffff" />
+        <label>Card color</label>
+        <input id="cardColor" type="color" value="#ffffff" />
+        <label>Muted text color</label>
+        <input id="mutedColor" type="color" value="#000000" />
+        <div style="display:flex;align-items:center;gap:8px;margin-top:12px">
+          <input id="compactMode" type="checkbox" />
+          <label for="compactMode" style="margin:0">Compact mode</label>
+        </div>
+        <button type="button" class="btn-sm" id="resetCustomize" style="margin-top:12px;width:100%">Reset to defaults</button>
+      </div>
+    </div>
+  </div>
+
+<script>
+let data = JSON.parse(localStorage.getItem('inventoryData') || 'null') || {
+  employees: [],
+  inventory: { laptop:[], headset:[], mouse:[], other:[] }
+};
+
+let section = 'employees';
+
+function save(){ 
+  localStorage.setItem('inventoryData', JSON.stringify(data)); 
+  render(); 
+}
+
+function show(id){
+  section = id;
+  document.getElementById('title').textContent = id.charAt(0).toUpperCase()+id.slice(1);
+  ['employees','inventory','assign'].forEach(s => document.getElementById(s).style.display = s === id ? 'block' : 'none');
+  render();
+}
+
+function uid(prefix='id'){
+  return prefix + '_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2,8);
+}
+
+function addEmployee(){
+  const name = document.getElementById('empName').value.trim();
+  if(!name) return alert('Enter employee name');
+  data.employees.push({ id: uid('emp'), name, equipment: { laptop:null, headset:null, mouse:null, other:null } });
+  document.getElementById('empName').value = '';
+  save();
+}
+
+function removeEmployee(empId){
+  const emp = data.employees.find(e=>e.id===empId);
+  if(emp){
+    for(const cat of ['laptop','headset','mouse','other']){
+      const itemId = emp.equipment[cat];
+      if(itemId){
+        const item = data.inventory[cat].find(i=>i.id===itemId);
+        if(item){ item.assigned -= 1; }
+      }
+    }
+  }
+  data.employees = data.employees.filter(e=>e.id!==empId);
+  save();
+}
+
+function addInventory(){
+  const cat = getCustomSelectValue('eqCategory');
+  const name = document.getElementById('eqName').value.trim();
+  const qty = parseInt(document.getElementById('eqQty').value,10) || 0;
+  if(!name || qty < 1) return alert('Provide valid model/name and quantity');
+  const existing = data.inventory[cat].find(i => i.model === name);
+  if (existing) {
+    existing.qty += qty;
+  } else {
+    data.inventory[cat].push({ id: uid(cat), name: name, model:name, qty: qty, assigned: 0 });
+  }
+  document.getElementById('eqName').value = '';
+  document.getElementById('eqQty').value = '1';
+  save();
+}
+
+function removeInventory(cat, itemId){
+  const idx = data.inventory[cat].findIndex(i=>i.id===itemId);
+  if(idx === -1) return;
+  const item = data.inventory[cat][idx];
+  if(item.assigned > 0){
+    if(!confirm(`This item type has ${item.assigned} units assigned. Removing it will unassign them from employees. Continue?`)){
+      return;
+    }
+    for(const emp of data.employees){
+      if(emp.equipment[cat] === itemId){
+        emp.equipment[cat] = null;
+      }
+    }
+  }
+  data.inventory[cat].splice(idx,1);
+  save();
+}
+
+function assignSelected(){
+  const empId = getCustomSelectValue('selectEmployee');
+  if(!empId) return alert('Select an employee');
+  const emp = data.employees.find(e=>e.id===empId);
+  if(!emp) return alert('Employee not found');
+  const mapping = { laptop: 'selectLaptop', headset: 'selectHeadset', mouse: 'selectMouse', other: 'selectOther' };
+  for(const cat in mapping){
+    const itemId = getCustomSelectValue(mapping[cat]);
+    if(itemId){
+      if(emp.equipment[cat]){
+        const prev = data.inventory[cat].find(x=>x.id===emp.equipment[cat]);
+        if(prev){ prev.assigned -= 1; }
+      }
+      const item = data.inventory[cat].find(x=>x.id===itemId);
+      if(item && item.assigned < item.qty){
+        item.assigned += 1;
+        emp.equipment[cat] = item.id;
+      } else {
+        alert(`Selected ${cat} is not available: ${item ? item.name : itemId}`);
+      }
+    }
+  }
+  save();
+}
+
+function unassignEmployee(empId){
+  const emp = data.employees.find(e=>e.id===empId);
+  if(!emp) return;
+  for(const cat of ['laptop','headset','mouse','other']){
+    const itemId = emp.equipment[cat];
+    if(itemId){
+      const item = data.inventory[cat].find(x=>x.id===itemId);
+      if(item){ item.assigned -= 1; }
+      emp.equipment[cat] = null;
+    }
+  }
+  save();
+}
+
+function unassignEquipment(empId, cat){
+  const emp = data.employees.find(e=>e.id===empId);
+  if(!emp) return;
+  const itemId = emp.equipment[cat];
+  if(itemId){
+    const item = data.inventory[cat].find(x=>x.id===itemId);
+    if(item){ item.assigned -= 1; }
+    emp.equipment[cat] = null;
+    save();
+  }
+}
+
+function render(){
+  const empList = document.getElementById('empList');
+  if(data.employees.length === 0){
+    empList.innerHTML = '<div class="small">No employees yet</div>';
+  } else {
+    let html = '<table><thead><tr><th>Employee</th><th>Laptop</th><th>Headset</th><th>Mouse</th><th>Other</th><th>Actions</th></tr></thead><tbody>';
+    for(const e of data.employees){
+      const equipment = {};
+      for(const c of ['laptop','headset','mouse','other']){
+        const id = e.equipment[c];
+        if(id){
+          const it = data.inventory[c].find(x=>x.id===id);
+          equipment[c] = it ? it.name : 'Unknown';
+        } else {
+          equipment[c] = '-';
+        }
+      }
+      const actions = [];
+      actions.push(`<button class=\"btn-sm action-btn\" onclick=\"openEditEmp('${e.id}')\" title=\"Edit employee\">✎</button>`);
+      for(const c of ['laptop','headset','mouse','other']){
+        if(e.equipment[c]) actions.push(`<button class=\"btn-sm action-btn\" onclick=\"unassignEquipment('${e.id}','${c}')\" title=\"Unassign ${c}\">⊗</button>`);
+      }
+      actions.push(`<button class=\"btn-sm action-btn btn-danger\" onclick=\"removeEmployee('${e.id}')\" title=\"Remove employee\">🗑</button>`);
+      html += `<tr><td><strong>${e.name}</strong><br><span class="small">${e.id}</span></td><td>${equipment.laptop}</td><td>${equipment.headset}</td><td>${equipment.mouse}</td><td>${equipment.other}</td><td class="table-actions">${actions.join('')}</td></tr>`;
+    }
+    html += '</tbody></table>';
+    empList.innerHTML = html;
+  }
+
+  const inv = document.getElementById('invList');
+  let invHtml = '';
+  for(const cat of Object.keys(data.inventory)){
+    const col = data.inventory[cat];
+    const totalQty = col.reduce((sum, item) => sum + item.qty, 0);
+    const totalAssigned = col.reduce((sum, item) => sum + item.assigned, 0);
+    const totalAvailable = totalQty - totalAssigned;
+    invHtml += `<h3 style="text-transform:capitalize;margin-top:16px;margin-bottom:8px">${cat} (Available: ${totalAvailable}/${totalQty})</h3>`;
+    if(col.length === 0){
+      invHtml += '<div class="small">No items</div>';
+    } else {
+      invHtml += '<table><thead><tr><th>Model/Brand</th><th>Total</th><th>Assigned</th><th>Available</th><th>Actions</th></tr></thead><tbody>';
+      for(const it of col){
+        const available = it.qty - it.assigned;
+        invHtml += `<tr><td>${it.name}</td><td>${it.qty}</td><td>${it.assigned}</td><td>${available}</td><td class=\"table-actions\"><button class=\"btn-sm action-btn\" onclick=\"openEditInv('${cat}','${it.id}')\" title=\"Edit item\">✎</button><button class=\"btn-sm action-btn btn-danger\" onclick=\"removeInventory('${cat}','${it.id}')\" title=\"Remove item\">🗑</button></td></tr>`;
+      }
+      invHtml += '</tbody></table>';
+    }
+  }
+  inv.innerHTML = invHtml;
+
+  fillCustomSelect('selectEmployee', [{value:'',text:'Select'}].concat(data.employees.map(e=>({value:e.id,text:e.name}))));
+  
+  function fillSelect(selectId, cat){
+    const options = [{value:'',text:'None'}].concat(data.inventory[cat].filter(it=>it.qty>it.assigned).map(it=>({value:it.id,text:`${it.name} (${it.qty - it.assigned} available)`})));
+    fillCustomSelect(selectId, options);
+  }
+  fillSelect('selectLaptop','laptop');
+  fillSelect('selectHeadset','headset');
+  fillSelect('selectMouse','mouse');
+  fillSelect('selectOther','other');
+
+  const assignedList = document.getElementById('assignedList');
+  if(data.employees.length === 0){
+    assignedList.innerHTML = '<div class="small">No employees yet</div>';
+  } else {
+    let html = '<table><thead><tr><th>Employee</th><th>Laptop</th><th>Headset</th><th>Mouse</th><th>Other</th><th>Actions</th></tr></thead><tbody>';
+    for(const e of data.employees){
+      const equipment = {};
+      for(const c of ['laptop','headset','mouse','other']){
+        const id = e.equipment[c];
+        if(id){
+          const it = data.inventory[c].find(x=>x.id===id);
+          equipment[c] = it ? it.name : 'Unknown';
+        } else {
+          equipment[c] = '-';
+        }
+      }
+      const actions = [];
+      for(const c of ['laptop','headset','mouse','other']){
+        if(e.equipment[c]) actions.push(`<button class=\"btn-sm action-btn\" onclick=\"unassignEquipment('${e.id}','${c}')\" title=\"Unassign ${c}\">⊗</button>`);
+      }
+      html += `<tr><td><strong>${e.name}</strong></td><td>${equipment.laptop}</td><td>${equipment.headset}</td><td>${equipment.mouse}</td><td>${equipment.other}</td><td class="table-actions">${actions.join('')}</td></tr>`;
+    }
+    html += '</tbody></table>';
+    assignedList.innerHTML = html;
+  }
+}
+
+document.getElementById('exportBtn').onclick = function(){
+  const blob = new Blob([JSON.stringify(data,null,2)], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'inventory.json';
+  a.click();
+};
+
+document.getElementById('importBtn').addEventListener('click', function(){
+  document.getElementById('importFile').click();
+});
+
+document.getElementById('importFile').addEventListener('change', function(e){
+  const f = e.target.files[0]; if(!f) return;
+  const r = new FileReader();
+  r.onload = function(ev){
+    try{
+      const imported = JSON.parse(ev.target.result);
+      if(!imported || !imported.employees || !imported.inventory) throw new Error('Invalid file');
+      data = imported;
+      save();
+      alert('Imported successfully');
+    } catch(err){
+      alert('Import failed: ' + err.message);
+    }
+  };
+  r.readAsText(f);
+});
+
+document.getElementById('clearBtn').onclick = function(){
+  if(confirm('Clear all data?')) {
+    data = { employees: [], inventory: { laptop:[], headset:[], mouse:[], other:[] } };
+    save();
+  }
+};
+
+render();
+
+// Initialize dropdowns
+fillCustomSelect('eqCategory', [{value:'laptop',text:'Laptop'},{value:'headset',text:'Headset'},{value:'mouse',text:'Mouse'},{value:'other',text:'Other'}]);
+fillCustomSelect('selectEmployee', [{value:'',text:'Select'}]);
+fillCustomSelect('selectLaptop', [{value:'',text:'None'}]);
+fillCustomSelect('selectHeadset', [{value:'',text:'None'}]);
+fillCustomSelect('selectMouse', [{value:'',text:'None'}]);
+fillCustomSelect('selectOther', [{value:'',text:'None'}]);
+
+// UI customization
+const customizeBtn = document.getElementById('customizeBtn');
+const customizeModal = document.getElementById('customizeModal');
+const closeCustomize = document.getElementById('closeCustomize');
+
+const defaultUI = { bg:'#ffffff', card:'#ffffff', muted:'#000000', accent:'#ff00ff', compact:false };
+let uiSettings;
+try { uiSettings = JSON.parse(localStorage.getItem('uiSettings') || 'null') || defaultUI; } catch(_) { uiSettings = defaultUI; }
+
+function applyUI(){
+  const r = document.documentElement;
+  r.style.setProperty('--bg', uiSettings.bg);
+  r.style.setProperty('--card', uiSettings.card);
+  r.style.setProperty('--muted', uiSettings.muted);
+  r.style.setProperty('--accent', uiSettings.accent);
+  document.body.classList.toggle('compact', !!uiSettings.compact);
+}
+
+function saveUI(){ localStorage.setItem('uiSettings', JSON.stringify(uiSettings)); }
+
+function bindUIControls(){
+  const accent = document.getElementById('accentColor');
+  const bg = document.getElementById('bgColor');
+  const card = document.getElementById('cardColor');
+  const muted = document.getElementById('mutedColor');
+  const compact = document.getElementById('compactMode');
+  const resetBtn = document.getElementById('resetCustomize');
+
+  if (accent) { accent.value = uiSettings.accent; accent.addEventListener('input', e=>{ uiSettings.accent = e.target.value; applyUI(); saveUI(); }); }
+  if (bg) { bg.value = uiSettings.bg; bg.addEventListener('input', e=>{ uiSettings.bg = e.target.value; applyUI(); saveUI(); }); }
+  if (card) { card.value = uiSettings.card; card.addEventListener('input', e=>{ uiSettings.card = e.target.value; applyUI(); saveUI(); }); }
+  if (muted) { muted.value = uiSettings.muted; muted.addEventListener('input', e=>{ uiSettings.muted = e.target.value; applyUI(); saveUI(); }); }
+  if (compact) { compact.checked = !!uiSettings.compact; compact.addEventListener('change', e=>{ uiSettings.compact = e.target.checked; applyUI(); saveUI(); }); }
+  if (resetBtn) { resetBtn.addEventListener('click', ()=>{ uiSettings = { ...defaultUI }; applyUI(); saveUI(); bindUIControls(); }); }
+}
+
+applyUI();
+bindUIControls();
+
+customizeBtn.addEventListener('click', () => { customizeModal.style.display = 'block'; });
+closeCustomize.addEventListener('click', () => { customizeModal.style.display = 'none'; });
+
+// Custom dropdown functions  
+function fillCustomSelect(selectId, options){
+  const select = document.getElementById(selectId);
+  const dropdown = select.querySelector('.custom-dropdown');
+  const button = select.querySelector('button');
+  const buttonText = button.querySelector('span:first-child');
+  dropdown.innerHTML = '';
+  
+  // Set up button click handler
+  button.onclick = function(e){
+    e.stopPropagation();
+    document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+    dropdown.classList.toggle('active');
+  };
+  
+  // Add options
+  options.forEach(opt => {
+    const div = document.createElement('div');
+    div.textContent = opt.text;
+    div.dataset.value = opt.value;
+    div.style.cursor = 'pointer';
+    div.onclick = function(e) {
+      e.stopPropagation();
+      buttonText.textContent = opt.text;
+      select.dataset.value = opt.value;
+      dropdown.classList.remove('active');
+      console.log('Selected:', selectId, opt.value);
+    };
+    dropdown.appendChild(div);
+  });
+  
+  if(options.length > 0){
+    buttonText.textContent = options[0].text;
+    select.dataset.value = options[0].value;
+  }
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', (e) => {
+  if(!e.target.closest('.custom-select')){
+    document.querySelectorAll('.custom-dropdown').forEach(d => d.classList.remove('active'));
+  }
+});
+
+function getCustomSelectValue(selectId){
+  const select = document.getElementById(selectId);
+  return select.dataset.value || '';
+}
+
+// Edit modals
+const editEmpModal = document.getElementById('editEmpModal');
+const editInvModal = document.getElementById('editInvModal');
+let editingEmpId = null;
+let editingInvId = null;
+let editingInvCat = null;
+
+document.getElementById('closeEditEmp').addEventListener('click', () => { editEmpModal.style.display = 'none'; });
+document.getElementById('closeEditInv').addEventListener('click', () => { editInvModal.style.display = 'none'; });
+
+function openEditEmp(empId){
+  const emp = data.employees.find(e => e.id === empId);
+  if(!emp) return;
+  editingEmpId = empId;
+  document.getElementById('editEmpName').value = emp.name;
+  editEmpModal.style.display = 'block';
+}
+
+function openEditInv(cat, itemId){
+  const item = data.inventory[cat].find(i => i.id === itemId);
+  if(!item) return;
+  editingInvId = itemId;
+  editingInvCat = cat;
+  document.getElementById('editInvName').value = item.name;
+  document.getElementById('editInvQty').value = item.qty;
+  editInvModal.style.display = 'block';
+}
+
+document.getElementById('saveEditEmp').addEventListener('click', () => {
+  const emp = data.employees.find(e => e.id === editingEmpId);
+  if(emp){
+    emp.name = document.getElementById('editEmpName').value.trim();
+    if(emp.name) {
+      save();
+      editEmpModal.style.display = 'none';
+    } else {
+      alert('Name cannot be empty');
+    }
+  }
+});
+
+document.getElementById('saveEditInv').addEventListener('click', () => {
+  const item = data.inventory[editingInvCat].find(i => i.id === editingInvId);
+  if(item){
+    const newQty = parseInt(document.getElementById('editInvQty').value, 10) || 0;
+    if(newQty < item.assigned) {
+      alert(`Cannot reduce quantity below ${item.assigned} (currently assigned)`);
+      return;
+    }
+    item.name = document.getElementById('editInvName').value.trim();
+    item.qty = newQty;
+    if(item.name && item.qty > 0){
+      save();
+      editInvModal.style.display = 'none';
+    } else {
+      alert('Please provide valid name and quantity');
+    }
+  }
+});
+</script>
+</body>
+</html>
